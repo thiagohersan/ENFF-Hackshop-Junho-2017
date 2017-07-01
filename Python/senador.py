@@ -3,9 +3,10 @@
 
 import json, requests
 
-url = 'http://meucongressonacional.com/api/001/senador/4981'
+url = 'http://meucongressonacional.com/api/001/senador/estado/go'
 
 resposta = requests.get(url)
 objeto_json = json.loads(resposta.text)
 
-print(objeto_json)
+for senador in objeto_json:
+    print(senador['nomeParlamentar']+"  "+str(senador['gastoTotal']))
